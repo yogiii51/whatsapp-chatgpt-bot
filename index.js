@@ -8,7 +8,7 @@ app.use(express.urlencoded({ extended: false }));
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-app.post('/incoming', async (req, res) => {
+app.post('/webhook', async (req, res) => {
   const twiml = new twilio.twiml.MessagingResponse();
   const userMessage = req.body.Body;
 
@@ -28,4 +28,4 @@ app.post('/incoming', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Bot is live on port ${PORT}`));
+app.listen(PORT, () => console.log(`Bot is liv
